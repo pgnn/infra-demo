@@ -42,6 +42,7 @@ resource "aws_s3_object" "taxis_json" {
   key          = "taxis.json"
   source       = "${path.module}/../data/taxis.json"
   content_type = "application/json"
+  source_hash  = filemd5("${path.module}/../data/taxis.json")
 
   tags = {
     Name = "Taxi Fleet Inventory"
